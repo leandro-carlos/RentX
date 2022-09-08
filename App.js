@@ -1,18 +1,29 @@
 import React from 'react'
-import { View, Text, StyleSheet, ScrollView } from 'react-native'
-import { colors } from './src/utils/assets/theme'
+import { View, StyleSheet, StatusBar } from 'react-native'
+import { colors, fonts } from './src/utils/theme'
+
+// Imports
+
+import Header from './src/components/Header'
 
 export default function App() {
   return (
-    <View style={style.container}>
+    <View style={styles.container}>
+      <StatusBar
+        backgroundColor={'transparent'}
+        barStyle='light-content'
+        translucent
+      />
+
+      <Header />
+
     </View>
   )
 }
 
-
-const style = StyleSheet.create({
+const styles = StyleSheet.create({
   container: {
-    flex: 1,
-    backgroundColor: colors.background_primary
+    backgroundColor: colors.background_primary,
+    flex: 1
   }
 })

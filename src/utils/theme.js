@@ -5,7 +5,7 @@ export const colors = {
     background_secondary: '#FFFFFF',
 
     text: '#7A7A80',
-    text_ddetailt: '#AEAEB3',
+    text_detail: '#AEAEB3',
     tittle:  '#47474D',
     line: '#EBEBF0',
 
