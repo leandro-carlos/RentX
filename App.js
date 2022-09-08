@@ -1,10 +1,10 @@
 import React from 'react'
-import { View, Text, StyleSheet } from 'react-native'
+import { View, Text, StyleSheet, ScrollView } from 'react-native'
+import { colors } from './src/utils/assets/theme'
 
 export default function App() {
   return (
     <View style={style.container}>
-      <Text>olá</Text>
     </View>
   )
 }
@@ -12,6 +12,7 @@ export default function App() {
 
 const style = StyleSheet.create({
   container: {
-    flex: 1
+    flex: 1,
+    backgroundColor: colors.background_primary
   }
 })
