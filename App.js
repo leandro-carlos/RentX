@@ -1,15 +1,13 @@
 import React, { useState } from 'react'
-import { View, StyleSheet, StatusBar, TextInput, Text } from 'react-native'
-import { colors, fonts } from './src/utils/theme'
+import { View, StyleSheet, StatusBar, TextInput, Text, TouchableOpacity } from 'react-native'
+import { colors } from './src/utils/theme'
 
-// Imports
+// Component
 
 import Header from './src/components/Header'
+import Car from './src/components/Car'
 
 export default function App() {
-
-  const [email, setEmail] = useState('')
-  const [password, setPassword] = useState('')
 
   return (
     <View style={styles.container}>
@@ -20,13 +18,7 @@ export default function App() {
       />
 
       <Header />
-
-      <TextInput onChangeText={setEmail} style={styles.btnLogin}></TextInput>
-      <TextInput onChangeText={setPassword} style={styles.btnLogin}></TextInput>
-
-      <Text style={styles.txtEmail}>
-        Seu email é {email}
-      </Text>
+      <Car />
 
     </View >
   )
@@ -34,7 +26,7 @@ export default function App() {
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: colors.background_primary,
+    backgroundColor: colors.hea,
     flex: 1
   },
   btnLogin: {
@@ -48,5 +40,14 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     fontSize: 20,
     color: colors.text,
+  },
+  buttonFacebook: {
+    borderWidth: 1,
+    height: 40,
+    marginHorizontal: 40,
+    backgroundColor: '#229dea',
+    alignItems: 'center',
+    justifyContent: 'center',
+    borderRadius: 15,
   }
 })
