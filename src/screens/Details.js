@@ -6,7 +6,7 @@ import { ArrowLeft } from 'phosphor-react-native'
 
 import { colors, fonts } from '../utils/theme'
 import Lamborguini from '../utils/assets/Lambo.png'
-import Accessory from './Accessory'
+import Accessory from '../components/Accessory'
 
 import Speed from '../utils/assets/Speed.svg'
 import Pessoas from '../utils/assets/Pessoas.svg'
@@ -66,23 +66,6 @@ export default function Details() {
                         É um belíssimo carro para quem gosta de acelerar.
                     </Text>
 
-                    <Text style={styles.about}>
-                        Este é automóvel desportivo. Surgiu do lendário touro de
-                        lide indultado na praça Real Maestranza de Sevilla.
-                        É um belíssimo carro para quem gosta de acelerar.
-                    </Text>
-
-                    <Text style={styles.about}>
-                        Este é automóvel desportivo. Surgiu do lendário touro de
-                        lide indultado na praça Real Maestranza de Sevilla.
-                        É um belíssimo carro para quem gosta de acelerar.
-                    </Text>
-
-                    <Text style={styles.about}>
-                        Este é automóvel desportivo. Surgiu do lendário touro de
-                        lide indultado na praça Real Maestranza de Sevilla.
-                        É um belíssimo carro para quem gosta de acelerar.
-                    </Text>
                 </View>
 
             </ScrollView>

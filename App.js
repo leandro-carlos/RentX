@@ -4,13 +4,13 @@ import React, { useState } from 'react'
 
 import Home from './src/screens/Home'
 import Details from './src/screens/Details'
-import { View } from 'react-native'
+import Scheduling from './src/screens/Scheduling'
 
 export default function App() {
 
   return (
 
-    <Details />
+    <Scheduling />
 
   )
 }
