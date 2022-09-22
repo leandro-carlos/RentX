@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 
+
 // Component
 
 import Home from './src/screens/Home'
@@ -9,8 +10,6 @@ import Scheduling from './src/screens/Scheduling'
 export default function App() {
 
   return (
-
     <Scheduling />
-
   )
 }
