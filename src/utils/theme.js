@@ -26,4 +26,4 @@ export const fonts = {
     secondary_400: 'Archivo-Regular',
     secondary_500: 'Archivo-Medium',
     secondary_600: 'Archivo-SemiBold',
-}
+} 
