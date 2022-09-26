@@ -6,7 +6,7 @@ import Done from '../utils/assets/Done.svg'
 
 import { colors, fonts } from '../utils/theme'
 
-export default function SchedulingSucess() {
+export default function SchedulingSucess({navigation}) {
     return (
         <View style={style.container}>
             <StatusBar
@@ -25,8 +25,10 @@ export default function SchedulingSucess() {
                 pegar o seu automóvel.
             </Text>
 
-            <TouchableOpacity style={style.btnOk} >
-                <Text style={{color: 'white', fontFamily: fonts.primary_500, fontSize: 15}}> Ok </Text>
+            <TouchableOpacity
+                onPress={() => navigation.navigate('Home')}
+                style={style.btnOk} >
+                <Text style={{ color: 'white', fontFamily: fonts.primary_500, fontSize: 15 }}> Ok </Text>
             </TouchableOpacity>
 
 

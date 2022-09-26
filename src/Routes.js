@@ -14,7 +14,7 @@ export function Routes() {
         <Stack.Navigator initialRouteName='Home'>
             <Stack.Screen name='Home' component={Home} options={{ headerShown: false }} />
             <Stack.Screen name='Details' component={Details} options={{ headerShown: false }} />
-            <Stack.Screen name='Scheduling' component={Scheduling} />
+            <Stack.Screen name='Scheduling' component={Scheduling} options={{ headerShown: false }} />
             <Stack.Screen name='SchedulingDetails' component={SchedulingDetails} options={{ headerShown: false }} />
             <Stack.Screen name='SchedulingSucess' component={SchedulingSucess} options={{ headerShown: false }} />
         </Stack.Navigator>

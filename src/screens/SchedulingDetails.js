@@ -15,7 +15,7 @@ import Gasolina from '../utils/assets/Gasolina.svg'
 import Forca from '../utils/assets/Forca.svg'
 import cambio from '../utils/assets/cambio.svg'
 
-export default function SchedulingDetails() {
+export default function SchedulingDetails({navigation}) {
     return (
         <SafeAreaView style={styles.container}>
 
@@ -115,6 +115,7 @@ export default function SchedulingDetails() {
             </ScrollView>
 
             <TouchableOpacity
+            onPress={() => navigation.navigate('SchedulingSucess')}
                 style={styles.buttonRent}
                 activeOpacity={0.5} >
                 <Text style={styles.textRent}>Alugar Agora</Text>

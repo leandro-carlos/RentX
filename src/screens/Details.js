@@ -15,21 +15,18 @@ import Gasolina from '../utils/assets/Gasolina.svg'
 import Forca from '../utils/assets/Forca.svg'
 import cambio from '../utils/assets/cambio.svg'
 
-export default function Details({ route }) {
+export default function Details({ route, navigation }) {
 
     const marca = route.params?.item.item.brand;
     const modelo = route.params?.item.item.name
     const price = route.params?.item.item.rent.price
     const image = route.params?.item.item.photos[0]
     const about = route.params?.item.item.about
-    const index = route.params?.item.index
+    // const index = route.params?.item.index
 
+    // const velocidade = route.params?.item.item.accessories[index].name
 
-    const velocidade = route.params?.item.item.accessories[index].name
-
-    console.log(velocidade);
-    
-
+    // console.log(velocidade);
 
     return (
         <SafeAreaView style={styles.container}>
@@ -84,9 +81,9 @@ export default function Details({ route }) {
             </ScrollView>
 
             <TouchableOpacity
+                onPress={() => navigation.navigate('Scheduling')}
                 style={styles.buttonRent}
-                activeOpacity={0.5}
-            >
+                activeOpacity={0.5} >
                 <Text style={styles.textRent}>Escolher período do aluguel</Text>
             </TouchableOpacity>
 

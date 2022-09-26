@@ -9,7 +9,7 @@ import { colors, fonts } from '../utils/theme'
 
 import Vector from '../utils/assets/Vector'
 
-export default function Scheduling() {
+export default function Scheduling({navigation}) {
 
     LocaleConfig.locales['pt-br'] = {
         monthNames: ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho', 'Julho', 'Agosto', 'Setembro', 'Outubro', 'Novembro', 'Dezembro'],
@@ -75,6 +75,7 @@ export default function Scheduling() {
             />
 
             <TouchableOpacity
+            onPress={()=> navigation.navigate('SchedulingDetails')}
                 style={styles.btnConfirmar}
                 activeOpacity={0.65} >
                 <Text style={styles.txtConfirmar}>CONFIRMAR</Text>
