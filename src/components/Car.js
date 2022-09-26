@@ -7,33 +7,36 @@ import Energia from '../utils/assets/Energia.svg'
 
 import { colors, fonts } from '../utils/theme'
 
-export default function Car() {
+export default function Car({ item }) {
+
+
+    console.log(item.item.fuel_type)
+
     return (
         <View style={styles.container}>
             <View style={styles.details}>
-                <Text style={styles.brand}>Audi</Text>
-                <Text style={styles.name}>RS 5 Coupé</Text>
+                <Text style={styles.brand}>{item.item.brand}</Text>
+                <Text style={styles.name}>{item.item.name} </Text>
 
                 <View style={styles.about}>
                     <View style={styles.rent}>
                         <Text style={styles.aluguel}>AO DIA</Text>
-                        <Text style={styles.price}>R$ 120</Text>
+                        <Text style={styles.price}>R$ {item.item.rent.price} </Text>
                     </View>
                     <Energia />
 
                 </View>
             </View>
 
-
             <Image
-                style={{ width: 167, height: 85 }}
-                source={require('../utils/assets/audi.png')}
+                style={{ width: 167, height: 85, borderRadius: 10 }}
+                source={{
+                    uri: item.item.thumbnail,
+                }}
             />
-
         </View>
     )
 }
-
 
 const styles = StyleSheet.create({
     container: {
@@ -52,7 +55,7 @@ const styles = StyleSheet.create({
             height: 2,
         },
         shadowOpacity: 0.25,
-        shadowRadius: 3.84, 
+        shadowRadius: 3.84,
 
         elevation: 5,
 
@@ -91,8 +94,4 @@ const styles = StyleSheet.create({
         fontSize: 15,
         fontFamily: fonts.secondary_500
     },
-    type: {
-
-    }
-
 })

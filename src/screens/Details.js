@@ -15,7 +15,22 @@ import Gasolina from '../utils/assets/Gasolina.svg'
 import Forca from '../utils/assets/Forca.svg'
 import cambio from '../utils/assets/cambio.svg'
 
-export default function Details() {
+export default function Details({ route }) {
+
+    const marca = route.params?.item.item.brand;
+    const modelo = route.params?.item.item.name
+    const price = route.params?.item.item.rent.price
+    const image = route.params?.item.item.photos[0]
+    const about = route.params?.item.item.about
+    const index = route.params?.item.index
+
+
+    const velocidade = route.params?.item.item.accessories[index].name
+
+    console.log(velocidade);
+    
+
+
     return (
         <SafeAreaView style={styles.container}>
 
@@ -32,7 +47,7 @@ export default function Details() {
                 </View>
 
                 <Image
-                    source={Lamborguini}
+                    source={{ uri: image }}
                     style={styles.image}
                     resizeMode='contain'
                 />
@@ -40,19 +55,19 @@ export default function Details() {
 
                     <View style={styles.containerDetails}>
                         <View >
-                            <Text style={styles.nameModel}>Lamborghini</Text>
-                            <Text style={styles.model}>Huracan</Text>
+                            <Text style={styles.nameModel}>{marca}</Text>
+                            <Text style={styles.model}>{modelo}</Text>
                         </View>
 
                         <View>
                             <Text style={styles.rent}>AO DIA</Text>
-                            <Text style={styles.price}>R$ 580</Text>
+                            <Text style={styles.price}>R$ {price}</Text>
                         </View>
                     </View>
 
                     <View style={styles.acessories}>
 
-                        <Accessory name={'380km/h'} Icon={Speed} />
+                        <Accessory name={'velocity'} Icon={Speed} />
                         <Accessory name={'3.2s'} Icon={Up} />
                         <Accessory name={'800 HP'} Icon={Forca} />
                         <Accessory name={'Gasolina'} Icon={Gasolina} />
@@ -61,9 +76,7 @@ export default function Details() {
                     </View>
 
                     <Text style={styles.about}>
-                        Este é automóvel desportivo. Surgiu do lendário touro de
-                        lide indultado na praça Real Maestranza de Sevilla.
-                        É um belíssimo carro para quem gosta de acelerar.
+                        {about}
                     </Text>
 
                 </View>
@@ -106,9 +119,10 @@ const styles = StyleSheet.create({
     },
     image: {
         width: 280,
-        height: 133,
+        height: 190,
         marginHorizontal: 48,
         marginTop: 40,
+        borderRadius: 10
     },
     content: {
         marginHorizontal: 25,

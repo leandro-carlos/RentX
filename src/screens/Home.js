@@ -1,5 +1,5 @@
-import React, { useState } from 'react'
-import { View, StyleSheet, StatusBar, TextInput, Text } from 'react-native'
+import React, { useEffect, useState } from 'react'
+import { View, StyleSheet, StatusBar, TextInput, Text, FlatList, TouchableOpacity, Pressable } from 'react-native'
 import { colors } from '../utils/theme'
 
 // Component
@@ -7,7 +7,23 @@ import { colors } from '../utils/theme'
 import Header from '../components/Header'
 import Car from '../components/Car'
 
-export default function App() {
+import api from '../services/api'
+
+export default function Home({ navigation }) {
+
+
+  const [list, setList] = useState([])
+
+  useEffect(() => {
+
+    async function getLista() {
+      const response = await api.get('/cars')
+      setList(response.data)
+      console.log(response.data)
+    }
+    getLista()
+  }
+    , [])
 
   return (
     <View style={styles.container}>
@@ -17,7 +33,18 @@ export default function App() {
         translucent
       />
       <Header />
-      <Car />
+      <FlatList
+        data={list}
+        extraData={list}
+        keyExtractor={item => item.id}
+        renderItem={
+          ((item, index) =>
+            <TouchableOpacity activeOpacity={0.75} onPress={() => navigation.navigate('Details', { item: item , index: index})}>
+              <Car item={item} />
+            </TouchableOpacity>
+          )}
+      />
+
     </View >
   )
 }
