@@ -39,7 +39,7 @@ export default function Home({ navigation }) {
         keyExtractor={item => item.id}
         renderItem={
           ((item, index) =>
-            <TouchableOpacity activeOpacity={0.75} onPress={() => navigation.navigate('Details', { item: item , index: index})}>
+            <TouchableOpacity activeOpacity={0.75} onPress={() => navigation.navigate('Details', { item: item, index: index })}>
               <Car item={item} />
             </TouchableOpacity>
           )}

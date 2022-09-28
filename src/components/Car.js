@@ -6,10 +6,11 @@ import Energia from '../utils/assets/Energia.svg'
 
 
 import { colors, fonts } from '../utils/theme'
+import { getAcessoryIcon } from '../utils/getAcessoryIcon'
 
 export default function Car({ item }) {
 
-
+    const MotorIcon = getAcessoryIcon(item.item.fuel_type);
     console.log(item.item.fuel_type)
 
     return (
@@ -23,7 +24,7 @@ export default function Car({ item }) {
                         <Text style={styles.aluguel}>AO DIA</Text>
                         <Text style={styles.price}>R$ {item.item.rent.price} </Text>
                     </View>
-                    <Energia />
+                    <MotorIcon />
 
                 </View>
             </View>

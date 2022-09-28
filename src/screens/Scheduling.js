@@ -9,7 +9,7 @@ import { colors, fonts } from '../utils/theme'
 
 import Vector from '../utils/assets/Vector'
 
-export default function Scheduling({navigation}) {
+export default function Scheduling({ navigation }) {
 
     LocaleConfig.locales['pt-br'] = {
         monthNames: ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho', 'Julho', 'Agosto', 'Setembro', 'Outubro', 'Novembro', 'Dezembro'],
@@ -53,6 +53,8 @@ export default function Scheduling({navigation}) {
                     direction == 'left'
                         ? <ArrowLeft size={32} color={colors.text} />
                         : <ArrowRight size={32} color={colors.text} />}
+                markingType={'period'}
+                // markedDates={}
                 headerStyle={{
                     backgroundColor: colors.background_secondary,
                     borderBottomColor: colors.text,
@@ -75,7 +77,7 @@ export default function Scheduling({navigation}) {
             />
 
             <TouchableOpacity
-            onPress={()=> navigation.navigate('SchedulingDetails')}
+                onPress={() => navigation.navigate('SchedulingDetails')}
                 style={styles.btnConfirmar}
                 activeOpacity={0.65} >
                 <Text style={styles.txtConfirmar}>CONFIRMAR</Text>

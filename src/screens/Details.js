@@ -8,12 +8,9 @@ import { colors, fonts } from '../utils/theme'
 import Lamborguini from '../utils/assets/Lambo.png'
 import Accessory from '../components/Accessory'
 
-import Speed from '../utils/assets/Speed.svg'
-import Pessoas from '../utils/assets/Pessoas.svg'
-import Up from '../utils/assets/Up.svg'
-import Gasolina from '../utils/assets/Gasolina.svg'
-import Forca from '../utils/assets/Forca.svg'
-import cambio from '../utils/assets/cambio.svg'
+import { getAcessoryIcon } from '../utils/getAcessoryIcon'
+
+
 
 export default function Details({ route, navigation }) {
 
@@ -24,9 +21,10 @@ export default function Details({ route, navigation }) {
     const about = route.params?.item.item.about
     // const index = route.params?.item.index
 
-    // const velocidade = route.params?.item.item.accessories[index].name
+    const accessory = route.params?.item.item.accessories
 
-    // console.log(velocidade);
+    const car = route.params?.item.item;
+
 
     return (
         <SafeAreaView style={styles.container}>
@@ -64,12 +62,15 @@ export default function Details({ route, navigation }) {
 
                     <View style={styles.acessories}>
 
-                        <Accessory name={'velocity'} Icon={Speed} />
-                        <Accessory name={'3.2s'} Icon={Up} />
-                        <Accessory name={'800 HP'} Icon={Forca} />
-                        <Accessory name={'Gasolina'} Icon={Gasolina} />
-                        <Accessory name={'32 x 32'} Icon={cambio} />
-                        <Accessory name={'2 Pessoas'} Icon={Pessoas} />
+                        {
+                            car.accessories.map(accessory => (
+                                <Accessory
+                                    key={accessory.type}
+                                    name={accessory.name}
+                                    Icon={getAcessoryIcon(accessory.type)} />
+                            ))
+                        }
+
                     </View>
 
                     <Text style={styles.about}>
