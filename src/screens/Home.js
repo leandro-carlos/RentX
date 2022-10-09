@@ -1,35 +1,40 @@
-import React, { useEffect, useState } from 'react'
-import { View, StyleSheet, StatusBar, TextInput, Text, FlatList, TouchableOpacity, Pressable } from 'react-native'
-import { colors } from '../utils/theme'
+import React, {useEffect, useState} from 'react';
+import {
+  View,
+  StyleSheet,
+  StatusBar,
+  TextInput,
+  Text,
+  FlatList,
+  TouchableOpacity,
+  Pressable,
+} from 'react-native';
+import {colors} from '../utils/theme';
 
 // Component
 
-import Header from '../components/Header'
-import Car from '../components/Car'
+import Header from '../components/Header';
+import Car from '../components/Car';
 
-import api from '../services/api'
+import api from '../services/api';
 
-export default function Home({ navigation }) {
-
-
-  const [list, setList] = useState([])
+export default function Home({navigation}) {
+  const [list, setList] = useState([]);
 
   useEffect(() => {
-
     async function getLista() {
-      const response = await api.get('/cars')
-      setList(response.data)
-      console.log(response.data)
+      const response = await api.get('/cars');
+      setList(response.data);
+      console.log(response.data);
     }
-    getLista()
-  }
-    , [])
+    getLista();
+  }, []);
 
   return (
     <View style={styles.container}>
       <StatusBar
         backgroundColor={'transparent'}
-        barStyle='light-content'
+        barStyle="light-content"
         translucent
       />
       <Header />
@@ -37,28 +42,30 @@ export default function Home({ navigation }) {
         data={list}
         extraData={list}
         keyExtractor={item => item.id}
-        renderItem={
-          ((item, index) =>
-            <TouchableOpacity activeOpacity={0.75} onPress={() => navigation.navigate('Details', { item: item, index: index })}>
-              <Car item={item} />
-            </TouchableOpacity>
-          )}
+        renderItem={(item, index) => (
+          <TouchableOpacity
+            activeOpacity={0.75}
+            onPress={() =>
+              navigation.navigate('Details', {item: item, index: index})
+            }>
+            <Car item={item} />
+          </TouchableOpacity>
+        )}
       />
-
-    </View >
-  )
+    </View>
+  );
 }
 
 const styles = StyleSheet.create({
   container: {
     backgroundColor: colors.background_primary,
-    flex: 1
+    flex: 1,
   },
   btnLogin: {
     backgroundColor: colors.shape_dark,
     width: '90%',
     margin: 15,
-    color: 'white'
+    color: 'white',
   },
   txtEmail: {
     textAlign: 'center',
@@ -74,5 +81,5 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     borderRadius: 15,
-  }
-})
+  },
+});
