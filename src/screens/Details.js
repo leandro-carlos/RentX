@@ -13,7 +13,6 @@ import {ArrowLeft} from 'phosphor-react-native';
 // Imports
 
 import {colors, fonts} from '../utils/theme';
-import Lamborguini from '../utils/assets/Lambo.png';
 import Accessory from '../components/Accessory';
 
 import {getAcessoryIcon} from '../utils/getAcessoryIcon';
@@ -24,9 +23,6 @@ export default function Details({route, navigation}) {
   const price = route.params?.item.item.rent.price;
   const image = route.params?.item.item.photos[0];
   const about = route.params?.item.item.about;
-  // const index = route.params?.item.index
-
-  const accessory = route.params?.item.item.accessories;
 
   const car = route.params?.item.item;
 

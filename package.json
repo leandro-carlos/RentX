@@ -8,12 +8,13 @@
     "start": "react-native start",
     "test": "jest",
     "lint": "eslint .",
-    "api": "json-server --watch server.json --host 192.168.1.2 --port 3333 --delay 700"
+    "api": "json-server --watch server.json --host 192.168.1.209 --port 3333 --delay 700"
   },
   "dependencies": {
     "@react-navigation/native": "^6.0.13",
     "@react-navigation/native-stack": "^6.9.0",
     "axios": "^0.27.2",
+    "date-fns": "^2.29.3",
     "json-server": "^0.17.0",
     "phosphor-react-native": "^1.1.2",
     "react": "18.1.0",

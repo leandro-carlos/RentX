@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-export const baseUrl = 'http://192.168.1.2:3333'; // ambiente de produção
+export const baseUrl = 'http://192.168.1.209:3333'; // ambiente de produção
 
 const api = axios.create({
   baseURL: baseUrl,

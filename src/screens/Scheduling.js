@@ -1,58 +1,47 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {View, Text, StyleSheet, Button, TouchableOpacity} from 'react-native';
 import {Calendar, LocaleConfig} from 'react-native-calendars';
 
 import {ArrowLeft, ArrowRight} from 'phosphor-react-native';
 
-import Header from '../components/Header';
 import {colors, fonts} from '../utils/theme';
 
 import Vector from '../utils/assets/Vector';
-
+import {ptBr} from '../components/LocaleConfig';
+import {generateInterval} from '../functions/generateInterval';
 export default function Scheduling({navigation}) {
-  LocaleConfig.locales['pt-br'] = {
-    monthNames: [
-      'Janeiro',
-      'Fevereiro',
-      'Março',
-      'Abril',
-      'Maio',
-      'Junho',
-      'Julho',
-      'Agosto',
-      'Setembro',
-      'Outubro',
-      'Novembro',
-      'Dezembro',
-    ],
-    monthNamesShort: [
-      'Jan',
-      'Fev',
-      'Mar',
-      'Abr',
-      'Mai',
-      'Jun',
-      'Jul',
-      'Ago',
-      'Set',
-      'Out',
-      'Nov',
-      'Dez',
-    ],
-    dayNames: [
-      'Domingo',
-      'Segunda',
-      'Terça',
-      'Quarta',
-      'Quinta',
-      'Sexta',
-      'Sábado',
-    ],
-    dayNamesShort: ['DOM', 'SEG.', 'TER', 'QUA', 'QUI', 'SEX', 'SAB'],
-    today: 'Hoje',
-  };
+  const [lastSelectedDate, setLastSelectedDate] = useState({});
+  const [markedDates, setMarkedDates] = useState({});
 
+  LocaleConfig.locales['pt-br'] = ptBr;
   LocaleConfig.defaultLocale = 'pt-br';
+
+  function handleChangeDate(item) {
+    let start = !lastSelectedDate.timestamp ? item : lastSelectedDate;
+    let end = item;
+
+    if (start.timestamp > end.timestamp) {
+      start = end;
+      end = start;
+    }
+
+    setLastSelectedDate(end);
+    const interval = generateInterval(start, end);
+    console.log(interval);
+
+    // setMarkedDates(interval);
+
+    // const firstDate = Object.keys(interval)[0];
+    // const endDate = Object.keys(interval)[Object.keys(interval).length - 1];
+
+    // setRentalPeriod({
+    //   startFormatted: format(
+    //     getPlatformDate(new Date(firstDate)),
+    //     'dd/MM/yyyy',
+    //   ),
+    //   endFormatted: format(getPlatformDate(new Date(endDate)), 'dd/MM/yyyy'),
+    // });
+  }
 
   return (
     <View style={styles.container}>
@@ -84,6 +73,7 @@ export default function Scheduling({navigation}) {
       </View>
       <Calendar
         firstDay={1}
+        onDayPress={item => handleChangeDate(item)}
         minDate={new Date()}
         renderArrow={direction =>
           direction == 'left' ? (
@@ -93,6 +83,7 @@ export default function Scheduling({navigation}) {
           )
         }
         markingType={'period'}
+        // onPress={() => handleChangeDate()}
         // markedDates={}
         headerStyle={{
           backgroundColor: colors.background_secondary,

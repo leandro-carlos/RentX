@@ -3,11 +3,8 @@ import {
   View,
   StyleSheet,
   StatusBar,
-  TextInput,
-  Text,
   FlatList,
   TouchableOpacity,
-  Pressable,
 } from 'react-native';
 import {colors} from '../utils/theme';
 
