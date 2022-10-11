@@ -10,11 +10,11 @@ import Vector from '../utils/assets/Vector';
 import {ptBr} from '../components/LocaleConfig';
 import {generateInterval} from '../functions/generateInterval';
 export default function Scheduling({navigation}) {
-  const [lastSelectedDate, setLastSelectedDate] = useState({});
-  const [markedDates, setMarkedDates] = useState({});
-
   LocaleConfig.locales['pt-br'] = ptBr;
   LocaleConfig.defaultLocale = 'pt-br';
+
+  const [lastSelectedDate, setLastSelectedDate] = useState({});
+  const [markedDates, setMarkedDates] = useState({});
 
   function handleChangeDate(item) {
     let start = !lastSelectedDate.timestamp ? item : lastSelectedDate;
@@ -27,20 +27,7 @@ export default function Scheduling({navigation}) {
 
     setLastSelectedDate(end);
     const interval = generateInterval(start, end);
-    console.log(interval);
-
-    // setMarkedDates(interval);
-
-    // const firstDate = Object.keys(interval)[0];
-    // const endDate = Object.keys(interval)[Object.keys(interval).length - 1];
-
-    // setRentalPeriod({
-    //   startFormatted: format(
-    //     getPlatformDate(new Date(firstDate)),
-    //     'dd/MM/yyyy',
-    //   ),
-    //   endFormatted: format(getPlatformDate(new Date(endDate)), 'dd/MM/yyyy'),
-    // });
+    setMarkedDates(interval);
   }
 
   return (
@@ -84,7 +71,7 @@ export default function Scheduling({navigation}) {
         }
         markingType={'period'}
         // onPress={() => handleChangeDate()}
-        // markedDates={}
+        markedDates={markedDates}
         headerStyle={{
           backgroundColor: colors.background_secondary,
           borderBottomColor: colors.text,
